@@ -1,0 +1,34 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: Gotham Rounded;
+}
+
+:root {
+  --hue-neutral: 200;
+  --hue-wrong: 0; /* 빨간 색 */
+  --hue-correct: 145; /* 초록 색 */
+}
+
+body {
+  --hue: var(--hue-neutral);
+  padding: 0;
+  margin: 0;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: hsl(var(--hue), 100%, 20%);
+}
+
+/* 정답 시 배경 색을 초록 색으로 */
+body.correct {
+  --hue: var(--hue-correct);
+}
+
+/* 오답 시 배경 색을 빨간 색으로 */
+body.wrong {
+  --hue: var(--hue-wrong);
+}
