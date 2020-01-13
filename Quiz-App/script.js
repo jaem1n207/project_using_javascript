@@ -3,7 +3,10 @@ const nextButton = document.getElementById("next-btn");
 const questionContainerElement = document.getElementById("question-container");
 const questionElement = document.getElementById("question");
 const answerButtonsElement = document.getElementById("answer-buttons");
+const correctP = document.getElementById("answer-number-p");
 
+let correctNumber = -1;
+let correctNumberWrap = document.getElementById("correct-number");
 let shuffledQuestions, currentQustionIndex;
 
 startButton.addEventListener("click", startGame);
@@ -17,6 +20,7 @@ function startGame() {
   shuffledQuestions = questions.sort(() => Math.random() - 0.5);
   currentQustionIndex = 0;
   questionContainerElement.classList.remove("hide");
+  correctP.classList.remove("hide");
   setNextQuestion();
 }
 
@@ -32,6 +36,7 @@ function showQuestion(question) {
     button.innerText = answer.text;
     button.classList.add("btn");
     if (answer.correct) {
+      correctNumberWrap.innerText = correctNumber;
       button.dataset.correct = answer.correct;
     }
     button.addEventListener("click", selectAnswer);
@@ -47,8 +52,8 @@ function resetState() {
 }
 
 function selectAnswer(e) {
-  const selectedBUtton = e.target;
-  const correct = selectedBUtton.dataset.correct;
+  const selectedButton = e.target;
+  const correct = selectedButton.dataset.correct;
   setStatusClass(document.body, correct);
 
   Array.from(answerButtonsElement.children).forEach(button => {
@@ -58,6 +63,7 @@ function selectAnswer(e) {
     nextButton.classList.remove("hide");
   } else {
     startButton.innerText = "Restart";
+    correctNumber = 0;
     startButton.classList.remove("hide");
   }
 }
@@ -85,12 +91,12 @@ const questions = [
     ]
   },
   {
-    question: "Who is the best YouTuber?",
+    question: "What is 20 + 22?",
     answers: [
-      { text: "Web Dev Simplified", correct: true },
-      { text: "Traversy Media", correct: true },
-      { text: "Dev Ed", correct: true },
-      { text: "Fun Fun Function", correct: true }
+      { text: "40", correct: false },
+      { text: "41", correct: false },
+      { text: "42", correct: true },
+      { text: "43", correct: false }
     ]
   },
   {
