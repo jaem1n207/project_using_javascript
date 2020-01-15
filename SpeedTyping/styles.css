@@ -36,6 +36,7 @@ body,
   margin-bottom: 1rem;
   margin-left: calc(1rem + 2px);
   margin-right: calc(1rem + 2px);
+  font-size: 1.4rem;
 }
 
 .quote-input {
@@ -53,4 +54,13 @@ body,
 
 .quote-input:focus {
   border-color: black;
+}
+
+.correct {
+  color: green;
+}
+
+.incorrect {
+  color: red;
+  text-decoration: underline;
 }
