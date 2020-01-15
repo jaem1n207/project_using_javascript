@@ -5,7 +5,7 @@ const questionElement = document.getElementById("question");
 const answerButtonsElement = document.getElementById("answer-buttons");
 const correctP = document.getElementById("answer-number-p");
 
-let correctNumber = -1;
+let correctNumber = 0;
 let correctNumberWrap = document.getElementById("correct-number");
 let shuffledQuestions, currentQustionIndex;
 
