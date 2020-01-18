@@ -6,7 +6,25 @@
 }
 
 table {
-  width: 20vw;
+  min-width: 20vw;
+  width: 24vw;
   height: 50vh;
+  border-collapse: collapse;
+}
+
+td {
+  padding: 5px 10px;
   text-align: center;
+}
+
+input {
+  width: 100%;
+  border: none;
+  height: 70%;
+  font-size: 1.2rem;
+  text-align: right;
+}
+
+input:focus {
+  outline: none;
 }
