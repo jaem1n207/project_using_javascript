@@ -1,0 +1,12 @@
+.Wrap {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+table {
+  width: 20vw;
+  height: 50vh;
+  text-align: center;
+}
