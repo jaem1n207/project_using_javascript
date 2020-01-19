@@ -1,12 +1,29 @@
+var numberClicked = false; // 숫자이면 true, 연산자이면 false
+
 /* 
   input.value에 내가 누른 버튼의 숫자나 기호를 추가하는 함수
 */
 function add(char) {
   var display = document.getElementById("display");
-  if (char === "=") {
-    document.getElementById("result").value += char;
+  if (numberClicked == false) {
+    // 이전에 연산자를 입력했다면,
+    if (isNaN(char) == true) {
+      // 입력 받은 값이 연산자라면,
+      // 아무것도 하지 않음.
+    } else {
+      // 연산자가 아니라면,
+      display.value += char;
+    }
   } else {
+    // 이전에 숫자를 입력했다면,
     display.value += char;
+  }
+
+  if (isNaN(char) == true) {
+    // 연산자를 눌렀다면,
+    numberClicked = false;
+  } else {
+    numberClicked = true;
   }
 }
 
