@@ -1,7 +1,32 @@
-document.getElementById("input").focus();
+clear = function() {
+  var eventTypes = ["onkeydown", "onkeyup", "onkeypress"];
+  for (var event = 0; event < eventTypes.length; event++) {
+    var element = document.getElementById(eventTypes[event]);
+    while (element.firstChild != null) {
+      element.removeChild(element.firstChild);
+    }
+  }
+};
 
-function checkKeyCode(e) {
-  var keycode = e.keyCode;
+processKeyEvent = function(eventType, event) {
+  if (window.event) {
+    event = window.event;
+  }
 
-  document.getElementById("onkeydown_keycode").innerText = keycode;
-}
+  var element = document.getElementById(eventType + "_keycode");
+  var text = document.createTextNode("'" + event.keyCode + "'"); // table data에 keycode 표시
+  element.appendChild(text);
+};
+
+processKeyDown = function(e) {
+  clear();
+  processKeyEvent("onkeydown", e);
+};
+
+processKeyUp = function(e) {
+  processKeyEvent("onkeyup", e);
+};
+
+processKeyPress = function(e) {
+  processKeyEvent("onkeypress", e);
+};

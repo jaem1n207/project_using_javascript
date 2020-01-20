@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-
+    <script src="keyCode.js"></script>
     <title>CheckKeyCode</title>
   </head>
   <body>
@@ -18,8 +18,7 @@
     <hr />
     <br />
     <span
-      >KeyCode를 얻고 싶은 키를 입력해주세요.
-      <input id="input" type="text" onkeyup="checkKeyCode(event)"
+      >KeyCode를 얻고 싶은 키를 입력해주세요. <input id="input" type="text"
     /></span>
     <table
       border="1"
@@ -43,5 +42,10 @@
       </tbody>
     </table>
   </body>
-  <script src="keyCode.js"></script>
+  <script>
+    document.getElementById("input").focus();
+    document.getElementById("input").onkeydown = processKeyDown;
+    document.getElementById("input").onkeypress = processKeyPress;
+    document.getElementById("input").onkeyup = processKeyUp;
+  </script>
 </html>
