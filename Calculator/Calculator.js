@@ -27,6 +27,53 @@ function add(char) {
   }
 }
 
+function enter(e) {
+  if (e.keyCode == 13) {
+    // Enter 시 계산
+    calculate();
+  } else if (48 <= e.keyCode && e.keyCode <= 57) {
+    // 0~9 ASCII code
+    num = e.keyCode - 48;
+    add(num);
+  } else if (
+    e.keyCode == 187 ||
+    e.keyCode == 189 ||
+    e.keyCode == 191 ||
+    e.keyCode == 56
+  ) {
+    switch (e.keyCode) {
+      case 187:
+        add("+");
+        break;
+      case 189:
+        add("-");
+        break;
+      case 56:
+        add("*");
+        break;
+      case 191:
+        val("/");
+        break;
+    }
+  } else if (e.keyCode == 8) {
+    // backspace 누를 시 함수 실행
+    backSpace();
+  } else if (e.keyCode == 116 || e.keyCode == 16) {
+    return;
+  } else if (e.keyCode == 17) {
+    // ctrl 누를 시 초기화
+    document.getElementById("display").value = "";
+    document.getElementById("result").value = "";
+  } else {
+    alert("숫자 또는 연산자를 입력하세요!");
+  }
+}
+
+function backSpace() {
+  var display = document.getElementById("display");
+  display.value = display.value.substring(0, display.value.length - 1);
+}
+
 /* 
   input태그에서 식을 받아 계산하는 함수
 */

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>CheckKeyCode</title>
+  </head>
+  <body>
+    <h3>설명</h3>
+    <ul>
+      <li>onkeydown: 텍스트가 입력되기전에 이벤트 실행</li>
+      <li>onkeyup: 텍스트가 입력된 후 이벤트 실행</li>
+      <li>onkeypress: 텍스트가 입력되기전에 이벤트 실행</li>
+    </ul>
+    <br />
+    <hr />
+    <br />
+    <span
+      >KeyCode를 얻고 싶은 키를 입력해주세요.
+      <input id="input" type="text" onkeyup="checkKeyCode(event)"
+    /></span>
+    <table
+      border="1"
+      style="border-collapse: collapse; text-align: center; margin-top: 1.4rem;"
+    >
+      <thead>
+        <tr>
+          <th></th>
+          <th>onKeyDown</th>
+          <th>onKeyUp</th>
+          <th>onKeyPress</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>event.keyCode</th>
+          <td id="onkeydown_keycode"></td>
+          <td id="onkeyup_keycode"></td>
+          <td id="onkeypress_keycode"></td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+  <script src="keyCode.js"></script>
+</html>

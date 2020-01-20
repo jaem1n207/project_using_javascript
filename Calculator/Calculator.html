@@ -8,7 +8,7 @@
     <script src="Calculator.js"></script>
     <title>Calculator</title>
   </head>
-  <body>
+  <body onkeyup="enter(event)">
     <!-- colspan = 열(가로) 합침 / rowspan = 행(세로) 합침 -->
     <div class="Wrap">
       <table border="1">
@@ -47,7 +47,7 @@
         <tr>
           <td colspan="2" onclick="add('0')">0</td>
           <td onclick="add('.')">.</td>
-          <td onclick="add('='), calculate()">=</td>
+          <td onclick="calculate()">=</td>
         </tr>
       </table>
     </div>
