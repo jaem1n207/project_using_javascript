@@ -1,9 +1,17 @@
+/* 
+  이전에 가지고 있던 값 삭제
+*/
 clear = function() {
   var eventTypes = ["onkeydown", "onkeyup", "onkeypress"];
+  var codeTypes = ["keycode"];
   for (var event = 0; event < eventTypes.length; event++) {
-    var element = document.getElementById(eventTypes[event]);
-    while (element.firstChild != null) {
-      element.removeChild(element.firstChild);
+    for (var code = 0; code < codeTypes.length; code++) {
+      var element = document.getElementById(
+        eventTypes[event] + "_" + codeTypes[code]
+      );
+      while (element.firstChild != null) {
+        element.removeChild(element.firstChild);
+      }
     }
   }
 };
