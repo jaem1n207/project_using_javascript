@@ -27,20 +27,33 @@ function add(char) {
   }
 }
 
+function multiple(e) {
+  if (e.keyCode == 42) {
+    add("*");
+  } else if (e.keyCode == 37) {
+    add("%");
+  } else if (e.keyCode == 94) {
+    add("^");
+  }
+}
+
 function enter(e) {
   if (e.keyCode == 13) {
     // Enter 시 계산
     calculate();
   } else if (48 <= e.keyCode && e.keyCode <= 57) {
     // 0~9 ASCII code
-    num = e.keyCode - 48;
-    add(num);
-  } else if (
-    e.keyCode == 187 ||
-    e.keyCode == 189 ||
-    e.keyCode == 191 ||
-    e.keyCode == 56
-  ) {
+    if (e.keyCode != 56 && e.keyCode != 53 && e.keyCode != 54) {
+      num = e.keyCode - 48;
+      add(num);
+    } else if (e.keyCode == 56 && e.shiftKey == false) {
+      add("8");
+    } else if (e.keyCode == 53 && e.shiftKey == false) {
+      add("5");
+    } else if (e.keyCode == 54 && e.shiftKey == false) {
+      add("6");
+    }
+  } else if (e.keyCode == 187 || e.keyCode == 189 || e.keyCode == 191) {
     switch (e.keyCode) {
       case 187:
         add("+");
@@ -48,11 +61,8 @@ function enter(e) {
       case 189:
         add("-");
         break;
-      case 56:
-        add("*");
-        break;
       case 191:
-        val("/");
+        add("/");
         break;
     }
   } else if (e.keyCode == 8) {
@@ -64,6 +74,8 @@ function enter(e) {
     // ctrl 누를 시 초기화
     document.getElementById("display").value = "";
     document.getElementById("result").value = "";
+  } else if (e.keyCode == 190) {
+    add(".");
   } else {
     alert("숫자 또는 연산자를 입력하세요!");
   }
