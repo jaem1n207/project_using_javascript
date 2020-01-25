@@ -1,9 +1,7 @@
-var newItem = document.createElement("li");
-
 var items = [
   { name: "James", age: 21 },
   { name: "Amy", age: 26 },
-  { name: "Crime", age: 19 },
+  { name: "John", age: 19 },
   { name: "Amy", age: 20 }
 ];
 
@@ -34,15 +32,11 @@ items.sort(function(a, b) {
 
 window.onload = function() {
   for (var i = 0; i < items.length; i++) {
-    var textNode = document.createTextNode(items[i].name);
-    this.newItem.appendChild(textNode);
-    var myList = document.getElementById("itemList");
-    myList.appendChild(this.newItem);
-
-    /*
-    var list = document.getElementById("itemList");
-    list.insertBefore(newItem, list.childNodes[0]);
-    */
+    var li = document.createElement("li"); // li태그 생성
+    var ul = document.getElementById("itemList"); // ul 가져오기
+    var textNode = document.createTextNode(items[i].name); //items의 인덱스 별 이름 가져오기
+    li.appendChild(textNode);
+    ul.appendChild(li);
   }
 };
 
