@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>callbackFunc</title>
+  </head>
+  <body>
+    <input type="text" id="getValue1" onchange="value1Change()" />
+    <select id="optionSymbol" name="optionSymbol" onchange="changeSelect()">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">*</option>
+      <option value="/">/</option>
+    </select>
+    <input type="text" id="getValue2" onchange="value2Change()" />
+    <button onclick="calc()">결과 확인</button>
+    <div>
+      =
+      <span id="result">0</span>
+    </div>
+  </body>
+  <script src="index.js"></script>
+</html>
